@@ -16,6 +16,8 @@ public class Practica1s22015_201212655 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Menu a=new Menu();
+        a.setVisible(true);
     }
     
 }

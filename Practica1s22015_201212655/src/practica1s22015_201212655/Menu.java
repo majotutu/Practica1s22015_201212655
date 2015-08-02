@@ -27,20 +27,143 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jTextField4 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jTextField5 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        jTextField6 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jTextField7 = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
+        jTextField8 = new javax.swing.JTextField();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 0, 0));
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Untitled.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(180, 10, 460, 150);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ficha.JPG"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(50, 200, 80, 80);
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/castillo.JPG"))); // NOI18N
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(440, 460, 77, 80);
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/suelo.JPG"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(50, 330, 77, 80);
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/goomba.JPG"))); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(300, 330, 74, 80);
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pared.JPG"))); // NOI18N
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(550, 200, 72, 80);
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/hongo.JPG"))); // NOI18N
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(300, 200, 77, 80);
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/koopa.JPG"))); // NOI18N
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(550, 330, 77, 80);
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Principal.JPG"))); // NOI18N
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(170, 460, 77, 80);
+
+        jButton1.setText("+");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(230, 230, 40, 25);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(140, 230, 80, 20);
+
+        jButton2.setText("+");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(480, 230, 40, 25);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(390, 230, 80, 20);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(390, 360, 80, 20);
+
+        jButton3.setText("+");
+        getContentPane().add(jButton3);
+        jButton3.setBounds(480, 360, 40, 25);
+        getContentPane().add(jTextField4);
+        jTextField4.setBounds(260, 490, 80, 20);
+
+        jButton4.setText("+");
+        getContentPane().add(jButton4);
+        jButton4.setBounds(350, 490, 40, 25);
+        getContentPane().add(jTextField5);
+        jTextField5.setBounds(140, 360, 80, 20);
+
+        jButton5.setText("+");
+        getContentPane().add(jButton5);
+        jButton5.setBounds(230, 360, 40, 25);
+        getContentPane().add(jTextField6);
+        jTextField6.setBounds(530, 490, 80, 20);
+
+        jButton6.setText("+");
+        getContentPane().add(jButton6);
+        jButton6.setBounds(620, 490, 40, 25);
+        getContentPane().add(jTextField7);
+        jTextField7.setBounds(630, 230, 80, 20);
+
+        jButton7.setText("+");
+        getContentPane().add(jButton7);
+        jButton7.setBounds(720, 230, 40, 25);
+        getContentPane().add(jTextField8);
+        jTextField8.setBounds(630, 360, 80, 20);
+
+        jButton8.setText("+");
+        getContentPane().add(jButton8);
+        jButton8.setBounds(720, 360, 40, 25);
+
+        jButton9.setText("Cola");
+        getContentPane().add(jButton9);
+        jButton9.setBounds(690, 550, 80, 25);
+
+        jButton10.setText("Pila");
+        getContentPane().add(jButton10);
+        jButton10.setBounds(690, 520, 50, 25);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
+        jLabel1.setFocusable(false);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 796, 596);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -81,6 +204,33 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }
