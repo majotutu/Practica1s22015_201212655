@@ -38,21 +38,31 @@ public class Lista {
                     Nodo nuevo=new Nodo(nombre, imagen,fin,null);
                     fin.setSiguiente(nuevo);
                     fin=nuevo;}
-                tamanio++;}
+                tamanio++;
+            System.out.println(nombre.toString() +" "+imagen.toString());
+            }
             
             //metodos extraccion
-            public String ExtraerImagenInicio(){
-                Object img=inicio.getImagen();
-                Object nombre=inicio.getNombre();
-                inicio=inicio.getSiguiente();
-                    if(inicio!=null){
-                        inicio.setAnterior(null);}
-                    else{
-                        fin=null;}
-                    tamanio--;
-                String atributos=img.toString()+","+nombre.toString();
-            return atributos;
-    }
+            public void Pila(){
+                Nodo temp=fin;
+                while(temp!=null){
+                    System.out.println(temp.getNombre());
+                    System.out.println(temp.getImagen());
+                    System.out.println("=====================================");
+                    temp=temp.getAnterior();
+         
+            }
+        }   
+            public void Cola(){
+                Nodo temp=inicio;
+                while(temp!=null){
+                    System.out.println(temp.getNombre());
+                    System.out.println(temp.getImagen());
+                    System.out.println("=====================================");
+                    temp=temp.getSiguiente();
+         
+            }
+        }
             public Boolean Eliminar(Object dato, Object im){
                 Nodo temp=inicio;
                 int contador=-1;

@@ -5,11 +5,17 @@
  */
 package practica1s22015_201212655;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author MariaJose
  */
 public class Menu extends javax.swing.JFrame {
+    Lista l=new Lista();
+    int contadorPrincipal=0;
+    int contadorCastillo=0;
+    String identificador="";
 
     /**
      * Creates new form Menu
@@ -105,60 +111,112 @@ public class Menu extends javax.swing.JFrame {
         jLabel10.setBounds(170, 460, 77, 80);
 
         jButton1.setText("+");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
-        jButton1.setBounds(230, 230, 40, 25);
+        jButton1.setBounds(230, 230, 40, 23);
+
+        jTextField1.setName(""); // NOI18N
         getContentPane().add(jTextField1);
         jTextField1.setBounds(140, 230, 80, 20);
 
         jButton2.setText("+");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
-        jButton2.setBounds(480, 230, 40, 25);
+        jButton2.setBounds(480, 230, 40, 23);
         getContentPane().add(jTextField2);
         jTextField2.setBounds(390, 230, 80, 20);
         getContentPane().add(jTextField3);
         jTextField3.setBounds(390, 360, 80, 20);
 
         jButton3.setText("+");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3);
-        jButton3.setBounds(480, 360, 40, 25);
+        jButton3.setBounds(480, 360, 40, 23);
         getContentPane().add(jTextField4);
         jTextField4.setBounds(260, 490, 80, 20);
 
         jButton4.setText("+");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4);
-        jButton4.setBounds(350, 490, 40, 25);
+        jButton4.setBounds(350, 490, 40, 23);
         getContentPane().add(jTextField5);
         jTextField5.setBounds(140, 360, 80, 20);
 
         jButton5.setText("+");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5);
-        jButton5.setBounds(230, 360, 40, 25);
+        jButton5.setBounds(230, 360, 40, 23);
         getContentPane().add(jTextField6);
         jTextField6.setBounds(530, 490, 80, 20);
 
         jButton6.setText("+");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton6);
-        jButton6.setBounds(620, 490, 40, 25);
+        jButton6.setBounds(620, 490, 40, 23);
         getContentPane().add(jTextField7);
         jTextField7.setBounds(630, 230, 80, 20);
 
         jButton7.setText("+");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton7);
-        jButton7.setBounds(720, 230, 40, 25);
+        jButton7.setBounds(720, 230, 40, 23);
         getContentPane().add(jTextField8);
         jTextField8.setBounds(630, 360, 80, 20);
 
         jButton8.setText("+");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton8);
-        jButton8.setBounds(720, 360, 40, 25);
+        jButton8.setBounds(720, 360, 40, 23);
 
         jButton9.setText("Cola");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton9);
-        jButton9.setBounds(690, 550, 80, 25);
+        jButton9.setBounds(690, 550, 80, 23);
 
         jButton10.setText("Pila");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton10);
-        jButton10.setBounds(690, 520, 50, 25);
+        jButton10.setBounds(690, 520, 80, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.png"))); // NOI18N
         jLabel1.setFocusable(false);
@@ -167,6 +225,75 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+contadorPrincipal++;
+if (contadorPrincipal==1){
+identificador="Principal";
+InsertarLista(jTextField4.getText(),identificador);
+}
+else{
+JOptionPane.showMessageDialog(null, "¡Uups! Solo puede agregarse un personaje principal.");
+}
+jTextField4.setText(" ");
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+contadorCastillo++;
+if (contadorCastillo==1){
+identificador="castillo";
+InsertarLista(jTextField6.getText(),identificador);}
+else{
+JOptionPane.showMessageDialog(null, "¡Uups! Solo puede agregarse un castillo.");}        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+identificador="ficha";
+InsertarLista(jTextField1.getText(),identificador);
+jTextField1.setText(" ");
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+identificador="hongo";
+InsertarLista(jTextField2.getText(),identificador);     
+jTextField2.setText(" ");// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+identificador="pared";
+InsertarLista(jTextField7.getText(),identificador);
+jTextField7.setText(" ");// TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+identificador="suelo";
+InsertarLista(jTextField5.getText(),identificador);   
+jTextField5.setText(" ");// TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+identificador="goomba";
+InsertarLista(jTextField3.getText(),identificador); 
+jTextField3.setText(" ");// TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+identificador="koopa";
+InsertarLista(jTextField8.getText(),identificador);  
+jTextField8.setText(" ");// TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+l.Pila();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+l.Cola();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,7 +328,11 @@ public class Menu extends javax.swing.JFrame {
                 new Menu().setVisible(true);
             }
         });
+        
     }
+    public void InsertarLista(Object nombre, Object imagen){
+        l.InsertarFin(nombre, imagen);
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
