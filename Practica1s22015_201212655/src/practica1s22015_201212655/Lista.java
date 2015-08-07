@@ -13,6 +13,7 @@ public class Lista {
      Nodo inicio;
      Nodo fin;
      public static int tamanio;
+     public static int forma;
      
         public Lista(){
             inicio=null;
@@ -93,14 +94,70 @@ public class Lista {
                                                                     temp2.setAnterior(temp3);
                                                                     temp3.setSiguiente(temp2);
                                                                     tamanio--;
-                                                                    return true;}}
+                                                                    return true;}}}
 
-                                                                    temp=temp.siguiente;}}
+                                                                    temp=temp.siguiente;}
 
                                                                     
                   return false;
                
-       
-        
+        }
+            public Nodo IndiceDar(Object dato){
+                Nodo temp=inicio;
+                while(temp!=null){
+                                    if(temp.getNombre().equals(dato)){
+                                                                        return temp;}
+                                                                        temp=temp.siguiente;
+            }
+            return null;}
+            
+            public Object ObtenerPilaNombre(int indice){
+                int contador=0;
+                Nodo temporal=fin;
+            
+                while(contador<indice){
+                
+                                        temporal=temporal.anterior;
+                                        contador++;
+                
+                }
+            return temporal.nombre;
+        }
+ 
+            public Object ObtenerColaNombre(int indice){
+                int contador=0;
+                Nodo temporal=inicio;
+            
+                while(contador<indice){
+                
+                                        temporal=temporal.siguiente;
+                                        contador++;
+                
+                }
+            return temporal.nombre;
+        }
+            public Object ObtenerColaImagen2(int indice){
+                int contador=0;
+                Nodo temporal=inicio;
+            
+                while(contador<indice){
+                
+                                        temporal=temporal.siguiente;
+                                        contador++;
+                
+                }
+            return temporal.imagen;
+        }
+            public Object ObtenerPilaImagen2(int indice){
+                int contador=0;
+                Nodo temporal=fin;
+            
+                while(contador<indice){
+                
+                                        temporal=temporal.anterior;
+                                        contador++;
+                
+                }
+            return temporal.imagen;
         }
 }

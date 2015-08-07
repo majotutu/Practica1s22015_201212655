@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class Menu extends javax.swing.JFrame {
     Lista l=new Lista();
+    ListaFinal lf;
     int contadorPrincipal=0;
     int contadorCastillo=0;
     String identificador="";
@@ -286,13 +287,35 @@ jTextField8.setText(" ");// TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-l.Pila();
+l.forma=0;
+        l.Pila();
+        String f=(String) l.ObtenerPilaNombre(2);
+        String g=(String) l.ObtenerPilaImagen2(2);
+        System.out.println(f);
+        System.out.println(g);
+        System.out.println(" ----------------------------------------------------- ");
+        Boolean d=l.Eliminar(f, g);
+        System.out.println(d);
+        l.Pila();
+        lf=new ListaFinal();
+        lf.combo.removeAllItems();
+        for(int x=0; x<l.tamanio;x++){
+        lf.combo.addItem(l.ObtenerPilaNombre(x));}
+        lf.setVisible(true);
+        
+        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-l.Cola();        // TODO add your handling code here:
+l.forma=1;
+l.Cola();  
+        lf=new ListaFinal();
+        lf.combo.removeAllItems();
+        for(int x=0; x<l.tamanio;x++){
+        lf.combo.addItem(l.ObtenerColaNombre(x));}
+        lf.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
