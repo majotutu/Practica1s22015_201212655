@@ -64,7 +64,11 @@ public class Lista {
          
             }
         }
-            public static Boolean EliminarPila(Object dato, Object im){
+            public static Boolean EliminarPila(int a){
+                Object dato;
+                Object im;
+                dato=ObtenerPilaNombre(a);
+                im=ObtenerPilaImagen2(a);
                 Nodo temp=fin;
                 Nodo tem4;
                 int bandera=0;
@@ -110,7 +114,11 @@ public class Lista {
                   return false;
                
         }
-            public static Boolean Eliminar(Object dato, Object im){
+            public static Boolean Eliminar(int a){
+                Object dato;
+                Object im;
+                dato=ObtenerColaNombre(a);
+                im=ObtenerColaImagen2(a);
                 Nodo temp=inicio;
                 int bandera=0;
                 int contador=-1;

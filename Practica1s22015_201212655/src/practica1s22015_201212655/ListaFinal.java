@@ -131,10 +131,10 @@ MostrarImagen(imagen, nombre);}
 int contador=combo.getSelectedIndex();
 Boolean eliminar;
 if(l.forma==0){
-eliminar=l.EliminarPila(nombre, imagen);
+eliminar=l.EliminarPila(contador);
 }
 else{
-eliminar=l.Eliminar(nombre, imagen);  }
+eliminar=l.Eliminar(contador);  }
 combo.removeItemAt(contador);
 jLabel4.setIcon(null);
 //combo.setSelectedIndex(0);
@@ -153,6 +153,7 @@ generar("ListaDeObjetos");
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 text1.setEditable(true);
+
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
