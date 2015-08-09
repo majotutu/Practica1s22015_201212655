@@ -5,18 +5,28 @@
  */
 package practica1s22015_201212655;
 
+import java.awt.Image;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.net.URL;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author MariaJose
  */
 public class ListaFinal extends javax.swing.JFrame {
     Lista l;
+    Object imagen,nombre;
+    
 
     /**
      * Creates new form ListaFinal
      */
     public ListaFinal() {
         initComponents();
+        
     }
 
     /**
@@ -29,16 +39,13 @@ public class ListaFinal extends javax.swing.JFrame {
     private void initComponents() {
 
         combo = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
         combo.addActionListener(new java.awt.event.ActionListener() {
@@ -48,28 +55,21 @@ public class ListaFinal extends javax.swing.JFrame {
         });
         getContentPane().add(combo);
         combo.setBounds(390, 90, 120, 20);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(110, 90, 130, 20);
+
+        text1.setEditable(false);
+        getContentPane().add(text1);
+        text1.setBounds(200, 240, 130, 20);
 
         jLabel2.setBackground(java.awt.Color.white);
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(40, 90, 52, 21);
+        jLabel2.setBounds(130, 240, 52, 21);
 
         jLabel4.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         jLabel4.setText("imagen");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(210, 140, 132, 122);
-
-        jButton1.setText("Cargar imagen");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(20, 260, 132, 23);
+        jLabel4.setBounds(200, 90, 132, 122);
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -106,25 +106,54 @@ public class ListaFinal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
-       
+
+int conta=combo.getSelectedIndex();
+System.out.println(conta);
+
+if(l.forma==0 && l.tamanio!=0 ){
+                
+                imagen=l.ObtenerPilaImagen2(combo.getSelectedIndex());
+                System.out.println(imagen);
+                nombre=l.ObtenerPilaNombre(combo.getSelectedIndex());
+MostrarImagen(imagen, nombre);}
+
+else if (l.forma==1 && l.tamanio!=0){
+                imagen=l.ObtenerColaImagen2(combo.getSelectedIndex());
+                nombre=l.ObtenerColaNombre(combo.getSelectedIndex());
+MostrarImagen(imagen, nombre);}
+
+
+
         // TODO add your handling code here:
     }//GEN-LAST:event_comboActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-                  // TODO add your handling code here:
+int contador=combo.getSelectedIndex();
+Boolean eliminar;
+if(l.forma==0){
+eliminar=l.EliminarPila(nombre, imagen);
+}
+else{
+eliminar=l.Eliminar(nombre, imagen);  }
+combo.removeItemAt(contador);
+jLabel4.setIcon(null);
+//combo.setSelectedIndex(0);
+System.out.println(eliminar);
+text1.setText(" ");
+l.Pila();
+l.Cola();// TODO add your handling code here:
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+EscribirArchivo();
+generar("ListaDeObjetos");
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+text1.setEditable(true);
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
@@ -160,17 +189,116 @@ public class ListaFinal extends javax.swing.JFrame {
                 new ListaFinal().setVisible(true);
             }
         });
+        
     }
+    public void MostrarImagen(Object img, Object nom){
+            String path="/Imagenes/"+img.toString()+".JPG";
+            URL url=this.getClass().getResource(path);
+            ImageIcon iconos = new ImageIcon(url);
+            Icon iconos2=new ImageIcon(iconos.getImage().getScaledInstance(jLabel4.getWidth(), jLabel4.getHeight(), Image.SCALE_DEFAULT));
+            jLabel4.setIcon(iconos2);
+            text1.setText(nom.toString());
+    }
+    public void EscribirArchivo(){
+    FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            
+            fichero = new FileWriter("ListaDeObjetos.txt");
+            pw = new PrintWriter(fichero);
+            pw.println("digraph G");
+            pw.println("{");
+            pw.println("ListaDeObjetos;");
+            
+            if(l.forma==0){
+                            for(int x=0;x<l.tamanio;x++){
+                                                        System.out.println(l.ObtenerPilaNombre(x));
+                                                        pw.println(l.ObtenerPilaNombre(x)+";");                            
+                    }
+                            pw.println("ListaDeObjetos -> "+l.ObtenerPilaNombre(0)+";");
+                            for(int x=1;x<l.tamanio;x++){
+                            pw.println(l.ObtenerPilaNombre(x-1)+" -> "+l.ObtenerPilaNombre(x)+";");
+                            pw.println(l.ObtenerPilaNombre(x)+" -> "+l.ObtenerPilaNombre(x-1)+";");}
+  }
+            else{
+                for(int x=0;x<l.tamanio;x++){
+                                                System.out.println(l.ObtenerColaNombre(x));
+                                                pw.println(l.ObtenerColaNombre(x)+";");
+                  }
+                pw.println("ListaDeObjetos -> "+l.ObtenerColaNombre(0)+";");
+                for(int x=1;x<l.tamanio;x++){
+                                                pw.println(l.ObtenerColaNombre(x-1)+" -> "+l.ObtenerColaNombre(x)+";");
+                                                pw.println(l.ObtenerColaNombre(x)+" -> "+l.ObtenerColaNombre(x-1)+";");}
+}
+          pw.println("}");      
+                
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+    }
+    public void generar(String LaRuta){
+       
+try {
+
+//path del dot.exe,por lo general es la misma, pero depende de donde hayas instalado el paquete de Graphviz
+String dotPath="C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
+
+//path del archivo creado con el codigo del graphviz que queremos
+
+String fileInputPath = LaRuta+".txt";
+
+//path de salida del grafo, es decir el path de la imagen que vamos a crear con graphviz
+
+String fileOutputPath = LaRuta+".jpg";
+
+//tipo de imagen de salida, en este caso es jpg
+
+String tParam = "-Tjpg";
+
+String tOParam = "-o";
+
+//concatenamos nuestras direcciones. Lo que hice es crear un vector, para poder editar las direcciones de entrada y salida, usando las variables antes inicializadas
+
+//recordemos el comando en la consola de windows: C:\Archivos de programa\Graphviz 2.21\bin\dot.exe -Tjpg grafo1.txt -o grafo1.jpg Esto es lo que concatenamos en el vector siguiente:
+
+String[] cmd = new String[5];
+cmd[0] = dotPath;
+cmd[1] = tParam;
+cmd[2] = fileInputPath;
+cmd[3] = tOParam;
+cmd[4] = fileOutputPath;
+
+//Invocamos nuestra clase 
+
+Runtime rt = Runtime.getRuntime();
+
+//Ahora ejecutamos como lo hacemos en consola
+
+rt.exec( cmd );
+
+} catch (Exception ex) {
+ex.printStackTrace();
+}  finally {
+}
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JComboBox combo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
+    public static final javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
+    public static final javax.swing.JTextField text1 = new javax.swing.JTextField();
     // End of variables declaration//GEN-END:variables
 }

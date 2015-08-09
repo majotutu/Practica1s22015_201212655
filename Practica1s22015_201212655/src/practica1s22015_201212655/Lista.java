@@ -10,8 +10,8 @@ package practica1s22015_201212655;
  * @author MariaJose
  */
 public class Lista {
-     Nodo inicio;
-     Nodo fin;
+     static Nodo inicio;
+     static Nodo fin;
      public static int tamanio;
      public static int forma;
      
@@ -44,7 +44,7 @@ public class Lista {
             }
             
             //metodos extraccion
-            public void Pila(){
+            public static void Pila(){
                 Nodo temp=fin;
                 while(temp!=null){
                     System.out.println(temp.getNombre());
@@ -54,7 +54,7 @@ public class Lista {
          
             }
         }   
-            public void Cola(){
+            public static void Cola(){
                 Nodo temp=inicio;
                 while(temp!=null){
                     System.out.println(temp.getNombre());
@@ -64,14 +64,61 @@ public class Lista {
          
             }
         }
-            public Boolean Eliminar(Object dato, Object im){
-                Nodo temp=inicio;
+            public static Boolean EliminarPila(Object dato, Object im){
+                Nodo temp=fin;
+                Nodo tem4;
+                int bandera=0;
                 int contador=-1;
                 while(contador<tamanio){
                     contador++;                 
                     if(temp.getNombre().equals(dato)){
-                        if(temp.getImagen().equals(im)){
-                        
+                        if(temp.getImagen().equals(im)&& bandera<1){
+                            
+                            if(contador==0){
+                                                    fin=fin.getAnterior();
+                                                    if(fin!=null){
+                                                                    fin.setSiguiente(null);
+                                                                    tem4=fin.getAnterior();
+                                                                    if(tem4!=null){}
+                                                                    else{fin.setAnterior(null);
+                                                                    inicio=fin;}}
+                                                    else{
+                                                                    inicio=null;}
+                                                                    tamanio--;
+                                                                    return true;}
+                            else if(contador==tamanio-1){
+                                                    inicio=inicio.getSiguiente();
+                                                    if(inicio!=null){
+                                                                    inicio.setAnterior(null);}
+                                                    else{
+                                                                    fin=null;
+                                                                    fin.setAnterior(null);}
+                                                                    tamanio--;
+                                                                    return true;}
+                            else{
+                                                                    Nodo temp2=temp.siguiente;
+                                                                    Nodo temp3=temp.anterior;
+                                                                    temp2.setAnterior(temp3);
+                                                                    temp3.setSiguiente(temp2);
+                                                                    tamanio--;
+                                                                    return true;}}
+                    bandera++;}
+
+                                                                    temp=temp.anterior;}
+
+                                                                    
+                  return false;
+               
+        }
+            public static Boolean Eliminar(Object dato, Object im){
+                Nodo temp=inicio;
+                int bandera=0;
+                int contador=-1;
+                while(contador<tamanio){
+                    contador++;                 
+                    if(temp.getNombre().equals(dato)){
+                        if(temp.getImagen().equals(im)&& bandera<1){
+                            
                             if(contador==0){
                                                     inicio=inicio.getSiguiente();
                                                     if(inicio!=null){
@@ -94,7 +141,8 @@ public class Lista {
                                                                     temp2.setAnterior(temp3);
                                                                     temp3.setSiguiente(temp2);
                                                                     tamanio--;
-                                                                    return true;}}}
+                                                                    return true;}}
+                    bandera++;}
 
                                                                     temp=temp.siguiente;}
 
@@ -111,7 +159,7 @@ public class Lista {
             }
             return null;}
             
-            public Object ObtenerPilaNombre(int indice){
+            public static Object ObtenerPilaNombre(int indice){
                 int contador=0;
                 Nodo temporal=fin;
             
@@ -124,7 +172,7 @@ public class Lista {
             return temporal.nombre;
         }
  
-            public Object ObtenerColaNombre(int indice){
+            public static Object ObtenerColaNombre(int indice){
                 int contador=0;
                 Nodo temporal=inicio;
             
@@ -136,7 +184,7 @@ public class Lista {
                 }
             return temporal.nombre;
         }
-            public Object ObtenerColaImagen2(int indice){
+            public static Object ObtenerColaImagen2(int indice){
                 int contador=0;
                 Nodo temporal=inicio;
             
@@ -148,16 +196,45 @@ public class Lista {
                 }
             return temporal.imagen;
         }
-            public Object ObtenerPilaImagen2(int indice){
+            public static Object ObtenerPilaImagen2(int indice){
                 int contador=0;
                 Nodo temporal=fin;
+            
             
                 while(contador<indice){
                 
                                         temporal=temporal.anterior;
                                         contador++;
+                                        //System.out.println(temporal.imagen);
                 
                 }
-            return temporal.imagen;
-        }
+            System.out.println(temporal.imagen);    
+            return temporal.imagen;}
+       
+            public Boolean ModificarCola(Object nombre,Object imagen){
+                int conta=0;
+                Nodo temp=inicio;
+                while(temp!=null){
+                                    if(temp.getNombre().equals(nombre)&& temp.getImagen().equals(imagen)&& conta<1){
+                                                                        temp.setNombre(nombre);
+                                                                        temp.setImagen(imagen);
+                                                                        conta++;
+            return true;}
+            temp=temp.siguiente;
+       }
+        return false;
+   }
+            public Boolean ModificarPila(Object nombre,Object imagen){
+                int conta=0;
+                Nodo temp=fin;
+                while(temp!=null){
+                                    if(temp.getNombre().equals(nombre)&& temp.getImagen().equals(imagen)&& conta<1){
+                                                                        temp.setNombre(nombre);
+                                                                        temp.setImagen(imagen);
+                                                                        conta++;
+            return true;}
+            temp=temp.anterior;
+       }
+        return false;
+   }
 }

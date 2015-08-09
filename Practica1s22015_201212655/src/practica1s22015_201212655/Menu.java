@@ -5,6 +5,10 @@
  */
 package practica1s22015_201212655;
 
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -288,19 +292,21 @@ jTextField8.setText(" ");// TODO add your handling code here:
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
 l.forma=0;
+        
         l.Pila();
-        String f=(String) l.ObtenerPilaNombre(2);
-        String g=(String) l.ObtenerPilaImagen2(2);
-        System.out.println(f);
-        System.out.println(g);
-        System.out.println(" ----------------------------------------------------- ");
-        Boolean d=l.Eliminar(f, g);
-        System.out.println(d);
-        l.Pila();
+        
         lf=new ListaFinal();
         lf.combo.removeAllItems();
         for(int x=0; x<l.tamanio;x++){
-        lf.combo.addItem(l.ObtenerPilaNombre(x));}
+            String add= Integer.toString(x)+" "+l.ObtenerPilaNombre(x).toString();
+                                       lf.combo.addItem(add);}
+        lf.text1.setText(l.ObtenerPilaNombre(0).toString());
+        String path="/Imagenes/"+l.ObtenerPilaImagen2(0)+".JPG";
+        URL url=this.getClass().getResource(path);
+        ImageIcon iconos = new ImageIcon(url);
+        Icon iconos2=new ImageIcon(iconos.getImage().getScaledInstance(lf.jLabel4.getWidth(), lf.jLabel4.getHeight(), Image.SCALE_DEFAULT));
+        lf.jLabel4.setIcon(iconos2);
+        
         lf.setVisible(true);
         
         
@@ -313,8 +319,15 @@ l.forma=1;
 l.Cola();  
         lf=new ListaFinal();
         lf.combo.removeAllItems();
-        for(int x=0; x<l.tamanio;x++){
-        lf.combo.addItem(l.ObtenerColaNombre(x));}
+        for(int x=0; x<l.tamanio;x++){String add= Integer.toString(x)+" "+l.ObtenerColaNombre(x).toString();
+                                       lf.combo.addItem(add);}
+        lf.text1.setText(l.ObtenerColaNombre(0).toString());
+        String path="/Imagenes/"+l.ObtenerColaImagen2(0)+".JPG";
+        URL url=this.getClass().getResource(path);
+        ImageIcon iconos = new ImageIcon(url);
+        Icon iconos2=new ImageIcon(iconos.getImage().getScaledInstance(lf.jLabel4.getWidth(), lf.jLabel4.getHeight(), Image.SCALE_DEFAULT));
+        lf.jLabel4.setIcon(iconos2);
+        
         lf.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
