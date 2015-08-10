@@ -179,7 +179,10 @@ public class Lista {
                                         contador++;
                 
                 }
-            return temporal.nombre;
+                if(temporal.nombre==null){
+                    return null;}
+                else{
+            return temporal.nombre;}
         }
  
             public static Object ObtenerColaNombre(int indice){
@@ -192,7 +195,10 @@ public class Lista {
                                         contador++;
                 
                 }
-            return temporal.nombre;
+            if(temporal.nombre==null){
+                    return null;}
+                else{
+            return temporal.nombre;}
         }
             public static Object ObtenerColaImagen2(int indice){
                 int contador=0;
@@ -204,7 +210,10 @@ public class Lista {
                                         contador++;
                 
                 }
-            return temporal.imagen;
+            if(temporal.imagen==null){
+                    return null;}
+                else{
+            return temporal.imagen;}
         }
             public static Object ObtenerPilaImagen2(int indice){
                 int contador=0;
@@ -218,8 +227,12 @@ public class Lista {
                                         //System.out.println(temporal.imagen);
                 
                 }
-//            System.out.println(temporal.imagen);    
+//            System.out.println(temporal.imagen);   
+                if(temporal.imagen==null){
+                    return null;}
+                else{
             return temporal.imagen;}
+            }
        
             public static Boolean ModificarCola(int a, Object nombre){
                 

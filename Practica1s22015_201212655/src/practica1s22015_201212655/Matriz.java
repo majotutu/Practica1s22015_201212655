@@ -97,7 +97,7 @@ public class Matriz {
                     
                     
                     Nodo_Matriz insercion=new Nodo_Matriz(contC,0,null,null,null,null,null,helper);
-                    insercion.setBounds(cont, 640, 50, 50);
+                    insercion.setBounds(contC*50, 640, 50, 50);
                     insercion.setVisible(true);
                     //System.out.println(cont);
                     //System.out.println(640);
@@ -108,43 +108,49 @@ public class Matriz {
                 }
             
             public static void llenarC(Nodo_Matriz helper, int contC){
-               int contF=0;
+               int contF1=1;
                
                Nodo_Matriz aux=raiz;
-               Nodo_Matriz aux2=null;
+               Nodo_Matriz aux2=raiz;
                Nodo_Matriz aux3=null;
-                while(aux.arriba!=null){
+               int contadorff=50;
+                while(aux2.arriba!=null){
+                    System.out.println(contF1);
+                    contF1=contF1+1;
+                    aux2=aux2.getArriba();
                     
-                    contF=contF+1;
-                    aux=aux.getArriba();}
-                for(int x=1;x<contC;x++){
-                    aux2=aux.getDerecha();
-                    aux=aux2;
-                    System.out.println(aux2.getAbajo().x+" "+aux2.getAbajo().y);
+                }
+                //contF1=contF1+1;
+                int x=1;
+                while(x!=contF1){
+                   
+                    aux=aux.getArriba();
+                        while(aux.derecha!=null){                            
+                            aux=aux.getDerecha();}
+                    System.out.println("esta izquierda "+aux.x+" "+aux.y);
+                    System.out.println("va por "+contC+" "+x);
+                    Nodo_Matriz Filas=new Nodo_Matriz(contC,x,null,null,null,helper,null,aux);
+                    int coo=50;
+                    Filas.setBounds(contC*50, 640-(x*50), 50, 50);
+                   
+                    Tablero.ventana.add(Filas);
+                    helper.setArriba(Filas);
+                    aux.setDerecha(Filas);
+                    helper=Filas;
+                    System.out.println(helper.getAbajo().x+" "+helper.getAbajo().y);
                
-                System.out.println(aux2.getIzquierda().x+" "+aux2.getIzquierda().y);
-                    System.out.println(x);}
+                System.out.println(helper.getIzquierda().x+" "+helper.getIzquierda().y);
+                    System.out.println(x);
+                x++;}
                 
-                Nodo_Matriz Colu=new Nodo_Matriz(contC,contF,null,null,null,helper,null,aux);
-                int cy=coory-(contF*50);
-                Colu.setBounds(cont, cy, 50, 50);
-                Tablero.ventana.add(Colu);
-                
-                //System.out.println(cont);
-                //System.out.println(cy);
-                aux.setDerecha(Colu);
-                helper.setArriba(Colu);
-                
-                
-                System.out.println(Colu.getAbajo().x+" "+Colu.getAbajo().y);
 
-                System.out.println(Colu.getIzquierda().x+" "+Colu.getIzquierda().y);
                
-                cont=cont+50;
+                //cont=cont+50;
                 
-                aux=Colu;
+                //aux=Colu;
             
             }
+            
 
    public static void InsertarFila(){
                 int contFl=1;
