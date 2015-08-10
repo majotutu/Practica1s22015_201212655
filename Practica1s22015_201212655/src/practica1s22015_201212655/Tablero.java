@@ -5,12 +5,15 @@
  */
 package practica1s22015_201212655;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.URL;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JLabel;
 
 
 
@@ -18,17 +21,48 @@ import javax.swing.JPanel;
  *
  * @author MariaJose
  */
-public class Tablero {
-    public static JPanel PanelTablero;
+public class Tablero implements ActionListener {
+    Lista l;
+    public static JButton AgregarFila, AgregarColumna;
+    public static JLabel lista_extraer,objeto,objeto2;
     public static JFrame ventana;
     public Tablero(){
         ventana=new JFrame();
         ventana.setLayout(null);
         ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ventana.setBounds(0, 0, 1000, 730);
-        //ventana.setSize(1000,1000);
+        ventana.setBounds(0, 0, 1500, 730);
         ventana.setVisible(true);
+        AgregarFila=new JButton("AgregarFila");
+        AgregarFila.setBounds(1210,0,150,15);
+        AgregarColumna=new JButton("AgregarColumna");
+        AgregarColumna.setBounds(1210,16,150,15);
+        lista_extraer=new JLabel();
+        lista_extraer.setBounds(1020, 12, 132, 122);
+        objeto=new JLabel("Nombre");
+        objeto2=new JLabel();
+        objeto.setBounds(1170, 40, 60, 15);
+        objeto2.setBounds(1210, 65, 70, 15);
+       if(l.forma==0){
+           Object img=l.ObtenerPilaImagen2(0);
+           Object nom=l.ObtenerPilaNombre(0);
+            String path="/Imagenes/"+img.toString()+".JPG";
+            URL url=this.getClass().getResource(path);
+            ImageIcon iconos = new ImageIcon(url);
+            Icon iconos2=new ImageIcon(iconos.getImage().getScaledInstance(lista_extraer.getWidth(), lista_extraer.getHeight(), Image.SCALE_DEFAULT));
+            lista_extraer.setIcon(iconos2);
+            objeto2.setText(nom.toString());
+            }
+        ventana.add(objeto);
+        ventana.add(objeto2);
+        ventana.add(AgregarFila);
+        ventana.add(AgregarColumna);
+        ventana.add(lista_extraer);
        
         
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -5,14 +5,21 @@
  */
 package practica1s22015_201212655;
 
-import java.awt.Component;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.URL;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import static practica1s22015_201212655.ListaFinal.jLabel4;
 
 /**
  *
  * @author MariaJose
  */
-public class Nodo_Matriz extends javax.swing.JButton{
-    
+public class Nodo_Matriz extends javax.swing.JButton implements ActionListener {
+    Lista l;
     Nodo_Matriz arriba;
     Nodo_Matriz abajo;
     Nodo_Matriz derecha;
@@ -31,7 +38,9 @@ public class Nodo_Matriz extends javax.swing.JButton{
             this.abajo=aba;
             this.derecha=der;
             this.izquierda=izq;
-            //this.addActionListener(actionListener);
+            this.addActionListener(this);
+            
+            
             
             
          }
@@ -85,5 +94,44 @@ public class Nodo_Matriz extends javax.swing.JButton{
     }
                 public void setY(int y){
                     this.y=y;}
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+       // JLabel lab1=Tablero.lista_extraer;
+        //ImageIcon nuevo=new ImageIcon((Image) lab1.getIcon());
+       // String nue=nuevo.toString();
+      //  System.out.println(nue);
+        
+        //String ok=e.getSource().toString();
+        //System.out.println(ok);
+        Object c=e.getSource();
+        if(c==this){
+            
+         //   Icon nuevo22=new ImageIcon(nuevo.getImage().getScaledInstance(50, CENTER, Image.SCALE_DEFAULT));
+           // this.setIcon(nuevo22);
+        if(l.forma==0){
+        String path1="/Imagenes/"+l.ObtenerPilaImagen2(0).toString()+".JPG";
+        URL urls=this.getClass().getResource(path1);
+        ImageIcon iconos1 = new ImageIcon(urls);
+        Icon iconos22=new ImageIcon(iconos1.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+        this.setIcon(iconos22);
+        this.setImagen(l.ObtenerPilaImagen2(0));
+        this.setNombre(l.ObtenerPilaNombre(0));
+            
+        l.EliminarPila(0);
+        
+        String path="/Imagenes/"+l.ObtenerPilaImagen2(0).toString()+".JPG";
+            URL url=this.getClass().getResource(path);
+            ImageIcon iconos = new ImageIcon(url);
+            Icon iconos2=new ImageIcon(iconos.getImage().getScaledInstance(Tablero.lista_extraer.getWidth(), Tablero.lista_extraer.getHeight(), Image.SCALE_DEFAULT));
+            Tablero.lista_extraer.setIcon(iconos2);
+            Tablero.objeto2.setText(l.ObtenerPilaNombre(0).toString());
+        }}
+        //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
+
     
 }

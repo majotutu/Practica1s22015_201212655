@@ -5,11 +5,8 @@
  */
 package practica1s22015_201212655;
 
-import java.awt.Component;
-import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 
 /**
  *
@@ -23,12 +20,13 @@ public class Matriz {
     
         
         public Matriz(){
-        raiz=null;}
+        raiz=null;
+        }
         
         
             public static void generarPrimera(){
                 contar1=640;
-                contar2=590;
+                
               
                 raiz=new Nodo_Matriz(0,0,null,null,null,null,null,null);
                 raiz.setBounds(0, contar1, 50, 50);
@@ -36,6 +34,7 @@ public class Matriz {
                 uno.setBounds(0, 590, 50, 50);
                 
                 raiz.setArriba(uno);
+                
                 Tablero.ventana.add(raiz);
                 Tablero.ventana.add(uno);
                 
@@ -73,7 +72,10 @@ public class Matriz {
                 
                 
                 
-            }}
+            }
+
+   
+}
        //     public static void main(String args[]) {
          //   generarPrimera();}
         
