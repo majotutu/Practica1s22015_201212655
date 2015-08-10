@@ -19,6 +19,7 @@ public class Matriz {
     public static int contar2;
     public static int cont;
     public static int coory=640;
+    public static int coorx=50;
     
     
     
@@ -98,8 +99,8 @@ public class Matriz {
                     Nodo_Matriz insercion=new Nodo_Matriz(contC,0,null,null,null,null,null,helper);
                     insercion.setBounds(cont, 640, 50, 50);
                     insercion.setVisible(true);
-                    System.out.println(cont);
-                    System.out.println(640);
+                    //System.out.println(cont);
+                    //System.out.println(640);
                     Tablero.ventana.add(insercion);
                     helper.setDerecha(insercion);
                     helper=insercion;
@@ -110,26 +111,104 @@ public class Matriz {
                int contF=0;
                
                Nodo_Matriz aux=raiz;
+               Nodo_Matriz aux2=null;
+               Nodo_Matriz aux3=null;
                 while(aux.arriba!=null){
                     
                     contF=contF+1;
                     aux=aux.getArriba();}
+                for(int x=1;x<contC;x++){
+                    aux2=aux.getDerecha();
+                    aux=aux2;
+                    System.out.println(aux2.getAbajo().x+" "+aux2.getAbajo().y);
+               
+                System.out.println(aux2.getIzquierda().x+" "+aux2.getIzquierda().y);
+                    System.out.println(x);}
                 
                 Nodo_Matriz Colu=new Nodo_Matriz(contC,contF,null,null,null,helper,null,aux);
                 int cy=coory-(contF*50);
                 Colu.setBounds(cont, cy, 50, 50);
                 Tablero.ventana.add(Colu);
-                System.out.println(cont);
-                System.out.println(coory);
+                
+                //System.out.println(cont);
+                //System.out.println(cy);
                 aux.setDerecha(Colu);
                 helper.setArriba(Colu);
+                
+                
+                System.out.println(Colu.getAbajo().x+" "+Colu.getAbajo().y);
+
+                System.out.println(Colu.getIzquierda().x+" "+Colu.getIzquierda().y);
+               
                 cont=cont+50;
                 
                 aux=Colu;
             
             }
 
-   
+   public static void InsertarFila(){
+                int contFl=1;
+                Nodo_Matriz helper=raiz;
+                    while(helper.arriba!=null){
+                        contFl=contFl+1;
+                        helper=helper.getArriba();}
+                    
+                    
+                    Nodo_Matriz insercion=new Nodo_Matriz(0,contFl,null,null,null,helper,null,null);
+                    contar1=contar1-50;
+                    insercion.setBounds(0, contar1, 50, 50);
+                    
+                    insercion.setVisible(true);
+                    System.out.println(0);
+                    System.out.println(contar1);
+                    Tablero.ventana.add(insercion);
+                    helper.setArriba(insercion);
+                    helper=insercion;
+                    llenarF(helper,contFl);
+                }
+            
+            public static void llenarF(Nodo_Matriz helper, int contFl){
+               int contC1=0;
+               
+               Nodo_Matriz aux=raiz;
+               Nodo_Matriz aux2=raiz;
+               Nodo_Matriz aux3=null;
+               int contadorff=50;
+                while(aux2.derecha!=null){
+                    System.out.println(contC1);
+                    contC1=contC1+1;
+                    aux2=aux2.getDerecha();
+                    
+                }
+                contC1=contC1+1;
+                int x=1;
+                while(x!=contC1){
+                   
+                    aux=aux.getDerecha();
+                        while(aux.arriba!=null){                            
+                            aux=aux.getArriba();}
+                    System.out.println("esta abajo "+aux.x+" "+aux.y);
+                    System.out.println("va por "+x+" "+contFl);
+                    Nodo_Matriz Filas=new Nodo_Matriz(x,contFl,null,null,null,aux,null,helper);
+                    Filas.setBounds(contadorff, contar1, 50, 50);
+                    contadorff=contadorff+50;
+                    Tablero.ventana.add(Filas);
+                    helper.setDerecha(Filas);
+                    aux.setArriba(Filas);
+                    helper=Filas;
+                    System.out.println(helper.getAbajo().x+" "+helper.getAbajo().y);
+               
+                System.out.println(helper.getIzquierda().x+" "+helper.getIzquierda().y);
+                    System.out.println(x);
+                x++;}
+                
+
+               
+                //cont=cont+50;
+                
+                //aux=Colu;
+            
+            }
 }
        //     public static void main(String args[]) {
          //   generarPrimera();}

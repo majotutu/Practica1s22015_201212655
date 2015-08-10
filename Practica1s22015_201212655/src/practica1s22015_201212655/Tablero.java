@@ -63,6 +63,7 @@ public class Tablero implements ActionListener {
             lista_extraer.setIcon(iconos2);
             objeto2.setText(nom.toString());}
         AgregarColumna.addActionListener(this);
+        AgregarFila.addActionListener(this);
         ventana.add(objeto);
         ventana.add(objeto2);
         ventana.add(AgregarFila);
@@ -77,5 +78,7 @@ public class Tablero implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==AgregarColumna){
         m.InsertarColumna();}
+        else if(e.getSource()==AgregarFila){
+        m.InsertarFila();}
     }
 }
