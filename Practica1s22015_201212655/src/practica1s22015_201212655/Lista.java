@@ -72,9 +72,10 @@ public class Lista {
                 Nodo temp=fin;
                 Nodo tem4;
                 int bandera=0;
-                int contador=-1;
-                while(contador<tamanio){
-                    contador++;                 
+                int contador=0;
+                while(contador!=a){
+                    contador++;           
+                    temp=temp.anterior;}
                     if(temp.getNombre().equals(dato)){
                         if(temp.getImagen().equals(im)&& bandera<1){
                             
@@ -108,7 +109,7 @@ public class Lista {
                                                                     return true;}}
                     bandera++;}
 
-                                                                    temp=temp.anterior;}
+                                                                    
 
                                                                     
                   return false;
@@ -121,9 +122,10 @@ public class Lista {
                 im=ObtenerColaImagen2(a);
                 Nodo temp=inicio;
                 int bandera=0;
-                int contador=-1;
-                while(contador<tamanio){
-                    contador++;                 
+                int contador=0;
+                while(contador!=a){
+                    contador++;       
+                    temp=temp.siguiente;}
                     if(temp.getNombre().equals(dato)){
                         if(temp.getImagen().equals(im)&& bandera<1){
                             
@@ -152,7 +154,7 @@ public class Lista {
                                                                     return true;}}
                     bandera++;}
 
-                                                                    temp=temp.siguiente;}
+                                                                    
 
                                                                     
                   return false;
@@ -219,30 +221,42 @@ public class Lista {
             System.out.println(temporal.imagen);    
             return temporal.imagen;}
        
-            public Boolean ModificarCola(Object nombre,Object imagen){
+            public static Boolean ModificarCola(int a, Object nombre){
+                
+                Object imagen;
+                
+                imagen=ObtenerPilaImagen2(a);
                 int conta=0;
                 Nodo temp=inicio;
-                while(temp!=null){
-                                    if(temp.getNombre().equals(nombre)&& temp.getImagen().equals(imagen)&& conta<1){
+                while(conta!=a){
+                conta++;
+                temp=temp.siguiente;}
+                if(conta==a){
+                                    
                                                                         temp.setNombre(nombre);
                                                                         temp.setImagen(imagen);
-                                                                        conta++;
+                                                                        
             return true;}
-            temp=temp.siguiente;
-       }
         return false;
    }
-            public Boolean ModificarPila(Object nombre,Object imagen){
+            public static Boolean ModificarPila(int a, Object nombre){
+                
+                Object imagen;
+                
+                imagen=ObtenerPilaImagen2(a);
                 int conta=0;
                 Nodo temp=fin;
-                while(temp!=null){
-                                    if(temp.getNombre().equals(nombre)&& temp.getImagen().equals(imagen)&& conta<1){
+                while(conta!=a){
+                conta++;
+                temp=temp.anterior;}
+                if(conta==a){
+                                    
                                                                         temp.setNombre(nombre);
                                                                         temp.setImagen(imagen);
-                                                                        conta++;
+                                                                        
             return true;}
-            temp=temp.anterior;
-       }
+            
+       
         return false;
    }
 }

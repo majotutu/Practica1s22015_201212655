@@ -5,6 +5,7 @@
  */
 package practica1s22015_201212655;
 
+import java.awt.Component;
 import java.awt.Image;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -26,6 +27,7 @@ public class ListaFinal extends javax.swing.JFrame {
      */
     public ListaFinal() {
         initComponents();
+        this.setBounds(0, 0, 545, 440);
         
     }
 
@@ -55,8 +57,6 @@ public class ListaFinal extends javax.swing.JFrame {
         });
         getContentPane().add(combo);
         combo.setBounds(390, 90, 120, 20);
-
-        text1.setEditable(false);
         getContentPane().add(text1);
         text1.setBounds(200, 240, 130, 20);
 
@@ -148,11 +148,33 @@ l.Cola();// TODO add your handling code here:
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 EscribirArchivo();
 generar("ListaDeObjetos");
+Tablero t=new Tablero();
+Matriz m=new Matriz();
+m.generarPrimera();
+ 
+ 
+
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-text1.setEditable(true);
+int seleccionado=combo.getSelectedIndex();
+
+        if(l.forma==0){
+                Boolean modifica=l.ModificarPila(combo.getSelectedIndex(),text1.getText());
+                combo.removeAllItems();
+                for(int x=0; x<l.tamanio;x++){
+                                       String add= Integer.toString(x)+" "+l.ObtenerPilaNombre(x).toString();
+                                       combo.addItem(add);}
+                System.out.println(modifica);
+                System.out.println(l.ObtenerPilaNombre(seleccionado));}
+else{
+                Boolean modifica=l.ModificarCola(combo.getSelectedIndex(),text1.getText());
+                combo.removeAllItems();
+                for(int x=0; x<l.tamanio;x++){
+                                        String add= Integer.toString(x)+" "+l.ObtenerColaNombre(x).toString();
+                                        combo.addItem(add);}}
+        
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed

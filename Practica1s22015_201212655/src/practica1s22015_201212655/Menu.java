@@ -27,6 +27,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setBounds(0, 0, 810, 630);
     }
 
     /**
