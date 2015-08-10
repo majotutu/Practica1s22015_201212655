@@ -53,6 +53,15 @@ public class Tablero implements ActionListener {
             lista_extraer.setIcon(iconos2);
             objeto2.setText(nom.toString());
             }
+       else{
+       Object img=l.ObtenerColaImagen2(0);
+           Object nom=l.ObtenerColaNombre(0);
+            String path="/Imagenes/"+img.toString()+".JPG";
+            URL url=this.getClass().getResource(path);
+            ImageIcon iconos = new ImageIcon(url);
+            Icon iconos2=new ImageIcon(iconos.getImage().getScaledInstance(lista_extraer.getWidth(), lista_extraer.getHeight(), Image.SCALE_DEFAULT));
+            lista_extraer.setIcon(iconos2);
+            objeto2.setText(nom.toString());}
         AgregarColumna.addActionListener(this);
         ventana.add(objeto);
         ventana.add(objeto2);

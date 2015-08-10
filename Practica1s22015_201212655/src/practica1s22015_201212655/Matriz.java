@@ -18,6 +18,7 @@ public class Matriz {
     public static int contar1;
     public static int contar2;
     public static int cont;
+    public static int coory=640;
     
     
     
@@ -87,7 +88,7 @@ public class Matriz {
             }
             
             public static void InsertarColumna(){
-                int contC=0;
+                int contC=1;
                 Nodo_Matriz helper=raiz;
                     while(helper.derecha!=null){
                         contC=contC+1;
@@ -106,9 +107,25 @@ public class Matriz {
                 }
             
             public static void llenarC(Nodo_Matriz helper, int contC){
-                
-               Nodo_Matriz aux=raiz;
+               int contF=0;
                
+               Nodo_Matriz aux=raiz;
+                while(aux.arriba!=null){
+                    
+                    contF=contF+1;
+                    aux=aux.getArriba();}
+                
+                Nodo_Matriz Colu=new Nodo_Matriz(contC,contF,null,null,null,helper,null,aux);
+                int cy=coory-(contF*50);
+                Colu.setBounds(cont, cy, 50, 50);
+                Tablero.ventana.add(Colu);
+                System.out.println(cont);
+                System.out.println(coory);
+                aux.setDerecha(Colu);
+                helper.setArriba(Colu);
+                cont=cont+50;
+                
+                aux=Colu;
             
             }
 
