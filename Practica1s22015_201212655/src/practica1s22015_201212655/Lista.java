@@ -19,7 +19,7 @@ public class Lista {
             inicio=null;
             fin=null;}
         //metodos de insercion
-            public void InsertarInicio(Object nombre, Object imagen){
+            public static void InsertarInicio(Object nombre, Object imagen){
                 if(inicio==null){
                     inicio=new Nodo(nombre, imagen,null,null);
                     fin=inicio;}
@@ -31,7 +31,7 @@ public class Lista {
                 tamanio++;
             }
             
-            public void InsertarFin(Object nombre, Object imagen){
+            public static void InsertarFin(Object nombre, Object imagen){
                 if(inicio==null){
                     inicio=new Nodo(nombre, imagen, null, null);
                     fin=inicio;}
@@ -218,7 +218,7 @@ public class Lista {
                                         //System.out.println(temporal.imagen);
                 
                 }
-            System.out.println(temporal.imagen);    
+//            System.out.println(temporal.imagen);    
             return temporal.imagen;}
        
             public static Boolean ModificarCola(int a, Object nombre){

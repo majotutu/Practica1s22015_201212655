@@ -22,6 +22,7 @@ import javax.swing.JLabel;
  * @author MariaJose
  */
 public class Tablero implements ActionListener {
+    Matriz m;
     Lista l;
     public static JButton AgregarFila, AgregarColumna;
     public static JLabel lista_extraer,objeto,objeto2;
@@ -52,17 +53,20 @@ public class Tablero implements ActionListener {
             lista_extraer.setIcon(iconos2);
             objeto2.setText(nom.toString());
             }
+        AgregarColumna.addActionListener(this);
         ventana.add(objeto);
         ventana.add(objeto2);
         ventana.add(AgregarFila);
         ventana.add(AgregarColumna);
         ventana.add(lista_extraer);
+        
        
         
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(e.getSource()==AgregarColumna){
+        m.InsertarColumna();}
     }
 }

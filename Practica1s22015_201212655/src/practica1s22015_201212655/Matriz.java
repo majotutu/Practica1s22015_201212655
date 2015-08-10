@@ -17,15 +17,21 @@ public class Matriz {
     Tablero t;
     public static int contar1;
     public static int contar2;
+    public static int cont;
+    
+    
     
         
         public Matriz(){
         raiz=null;
+        contar1=640;
+        cont=50;
+        
         }
         
         
             public static void generarPrimera(){
-                contar1=640;
+                
                 
               
                 raiz=new Nodo_Matriz(0,0,null,null,null,null,null,null);
@@ -44,17 +50,22 @@ public class Matriz {
                 Nodo_Matriz aux2=raiz;
                 Nodo_Matriz aux3=raiz;
                 Nodo_Matriz aux4;
-                int cont=50;
+                
                 for(int x=1; x<4 ;x++){
                     
                     
                                     aux=new Nodo_Matriz(x,0,null,null,null,null,null,aux2);
                                     aux.setBounds(cont, contar1, 50, 50);
+                                    System.out.println(cont);
+                                    System.out.println(contar1);
                                     Tablero.ventana.add(aux);
                                     aux2.setDerecha(aux);                                    
                                     aux2=aux;  
+                                    
                                     aux4=new Nodo_Matriz(x,1,null,null,null,aux2,null,uno);
                                     aux4.setBounds(cont, contar1-50, 50, 50);
+                                    System.out.println(cont);
+                                    System.out.println(contar1-50);
                                     Tablero.ventana.add(aux4);
                                   
                                     aux2.setArriba(aux4);
@@ -69,9 +80,36 @@ public class Matriz {
                     System.out.println("derecha: "+aux.getIzquierda().getDerecha().x+" "+aux.getIzquierda().getDerecha().y);
                     System.out.println("arriba: "+aux2.getArriba().x+" "+aux2.getArriba().y);}
                 catch(Exception e){}}
+                contar1=contar1-50;
                 
                 
                 
+            }
+            
+            public static void InsertarColumna(){
+                int contC=0;
+                Nodo_Matriz helper=raiz;
+                    while(helper.derecha!=null){
+                        contC=contC+1;
+                        helper=helper.getDerecha();}
+                    
+                    
+                    Nodo_Matriz insercion=new Nodo_Matriz(contC,0,null,null,null,null,null,helper);
+                    insercion.setBounds(cont, 640, 50, 50);
+                    insercion.setVisible(true);
+                    System.out.println(cont);
+                    System.out.println(640);
+                    Tablero.ventana.add(insercion);
+                    helper.setDerecha(insercion);
+                    helper=insercion;
+                    llenarC(helper,contC);
+                }
+            
+            public static void llenarC(Nodo_Matriz helper, int contC){
+                
+               Nodo_Matriz aux=raiz;
+               
+            
             }
 
    

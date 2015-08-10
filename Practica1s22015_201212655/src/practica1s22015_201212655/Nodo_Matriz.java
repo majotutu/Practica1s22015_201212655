@@ -39,6 +39,7 @@ public class Nodo_Matriz extends javax.swing.JButton implements ActionListener {
             this.derecha=der;
             this.izquierda=izq;
             this.addActionListener(this);
+            this.setVisible(true);
             
             
             
@@ -98,19 +99,26 @@ public class Nodo_Matriz extends javax.swing.JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-       // JLabel lab1=Tablero.lista_extraer;
-        //ImageIcon nuevo=new ImageIcon((Image) lab1.getIcon());
-       // String nue=nuevo.toString();
-      //  System.out.println(nue);
-        
-        //String ok=e.getSource().toString();
-        //System.out.println(ok);
+   
         Object c=e.getSource();
         if(c==this){
-            
-         //   Icon nuevo22=new ImageIcon(nuevo.getImage().getScaledInstance(50, CENTER, Image.SCALE_DEFAULT));
-           // this.setIcon(nuevo22);
+        
+        
         if(l.forma==0){
+            if(this.getImagen()!=null){
+                
+                                 System.out.println(this.getImagen().toString());
+                                 this.setIcon(null);
+                                 l.InsertarInicio(this.getNombre(), this.getImagen());
+                                }
+            else{
+            System.out.println("nada");}
+        ModoPila();
+        }}
+        //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void ModoPila() {
         String path1="/Imagenes/"+l.ObtenerPilaImagen2(0).toString()+".JPG";
         URL urls=this.getClass().getResource(path1);
         ImageIcon iconos1 = new ImageIcon(urls);
@@ -126,10 +134,7 @@ public class Nodo_Matriz extends javax.swing.JButton implements ActionListener {
             ImageIcon iconos = new ImageIcon(url);
             Icon iconos2=new ImageIcon(iconos.getImage().getScaledInstance(Tablero.lista_extraer.getWidth(), Tablero.lista_extraer.getHeight(), Image.SCALE_DEFAULT));
             Tablero.lista_extraer.setIcon(iconos2);
-            Tablero.objeto2.setText(l.ObtenerPilaNombre(0).toString());
-        }}
-        //To change body of generated methods, choose Tools | Templates.
-    }
+            Tablero.objeto2.setText(l.ObtenerPilaNombre(0).toString()); }
 
    
 
