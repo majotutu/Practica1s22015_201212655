@@ -140,7 +140,7 @@ jLabel4.setIcon(null);
 //combo.setSelectedIndex(0);
 System.out.println(eliminar);
 text1.setText(" ");
-l.Pila();
+//l.Pila();
 l.Cola();// TODO add your handling code here:
 
     }//GEN-LAST:event_jButton4ActionPerformed

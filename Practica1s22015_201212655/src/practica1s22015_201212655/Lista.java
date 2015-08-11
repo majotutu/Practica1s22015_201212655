@@ -14,6 +14,14 @@ public class Lista {
      static Nodo fin;
      public static int tamanio;
      public static int forma;
+     public static int castill;
+     public static int Principa;
+     public static int ficha;
+     public static int goomba;
+     public static int hongo;
+     public static int koopa;
+     public static int pared;
+     public static int suelo;
      
         public Lista(){
             inicio=null;
@@ -46,13 +54,43 @@ public class Lista {
             //metodos extraccion
             public static void Pila(){
                 Nodo temp=fin;
+                castill=0;
+                Principa=0;
+                ficha=0;
+                goomba=0;
+                hongo=0;
+                koopa=0;
+                pared=0;
+                suelo=0;
                 while(temp!=null){
-                    System.out.println(temp.getNombre());
-                    System.out.println(temp.getImagen());
-                    System.out.println("=====================================");
+                    String prueb=temp.getImagen().toString();
+                    switch(prueb){
+                        case "castillo":castill++;
+                                        break;
+                        case "Principal":Principa++;
+                                        break;
+                        case "ficha":   ficha++;
+                                        break;
+                        case "goomba":  goomba++;
+                                        break;
+                        case "hongo":   hongo++;
+                                        break;
+                        case "koopa":   koopa++;
+                                        break;
+                        case "pared":   pared++;
+                                        break;
+                        case "suelo":   suelo++;
+                                        break;}
+                    
                     temp=temp.getAnterior();
          
             }
+                
+                //deb="Principal: "+Principal;
+                System.out.println();
+                
+                
+                
         }   
             public static void Cola(){
                 Nodo temp=inicio;

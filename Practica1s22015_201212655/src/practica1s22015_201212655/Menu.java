@@ -294,7 +294,7 @@ jTextField8.setText(" ");// TODO add your handling code here:
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
 l.forma=0;
         
-        l.Pila();
+       // l.Pila();
         
         lf=new ListaFinal();
         lf.combo.removeAllItems();

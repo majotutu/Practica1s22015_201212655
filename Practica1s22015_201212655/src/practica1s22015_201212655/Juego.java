@@ -10,12 +10,35 @@ package practica1s22015_201212655;
  * @author MariaJose
  */
 public class Juego extends javax.swing.JFrame {
+Lista l;
+    public static void leer() {
+        Lista.Pila();
+        jTextArea1.append("Personaje Principal: \n\n");
+        jTextArea1.append("                                     "+Lista.Principa+"\n\n");
+        jTextArea1.append("Castillo: \n\n");
+        jTextArea1.append("                                     "+Lista.castill+"\n\n");
+        jTextArea1.append("Fichas:\n\n");
+        jTextArea1.append("                                     "+Lista.ficha+"\n\n");
+        jTextArea1.append("Hongos:\n\n");
+        jTextArea1.append("                                     "+Lista.hongo+"\n\n");
+        jTextArea1.append("Koopa:\n\n");
+        jTextArea1.append("                                     "+Lista.koopa+"\n\n");
+        jTextArea1.append("Goomba:\n\n");
+        jTextArea1.append("                                     "+Lista.goomba+"\n\n");
+        jTextArea1.append("Pared:\n\n");
+        jTextArea1.append("                                     "+Lista.pared+"\n\n");
+        
+        
+        
+        
+         }
 
     /**
      * Creates new form Juego
      */
     public Juego() {
         initComponents();
+        leer();
     }
 
     /**
@@ -27,17 +50,42 @@ public class Juego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Lista:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -47,6 +95,8 @@ public class Juego extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -79,5 +129,8 @@ public class Juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

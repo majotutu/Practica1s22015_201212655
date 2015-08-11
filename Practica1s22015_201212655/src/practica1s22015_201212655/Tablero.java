@@ -24,7 +24,7 @@ import javax.swing.JLabel;
 public class Tablero implements ActionListener {
     Matriz m;
     Lista l;
-    public static JButton AgregarFila, AgregarColumna,graficas;
+    public static JButton AgregarFila, AgregarColumna,graficas, ListaR, Play;
     public static JLabel lista_extraer,objeto,objeto2;
     public static JFrame ventana;
     public Tablero(){
@@ -41,11 +41,16 @@ public class Tablero implements ActionListener {
         lista_extraer.setBounds(1020, 12, 132, 122);
         objeto=new JLabel("Nombre");
         objeto2=new JLabel();
-        objeto.setBounds(1170, 40, 60, 15);
-        objeto2.setBounds(1210, 65, 70, 15);
+        objeto.setBounds(1210, 40, 60, 15);
+        objeto2.setBounds(1254, 65, 70, 15);
         graficas=new JButton("Grafica");
-        graficas.setBounds(20, 7, 80, 20);
+        graficas.setBounds(1210, 112, 80, 20);
         graficas.addActionListener(this);
+        ListaR=new JButton("Lista");
+        ListaR.setBounds(1210,90,80,20);
+        ListaR.addActionListener(this);
+        ventana.add(ListaR);
+        
         ventana.add(graficas);
        if(l.forma==0){
            Object img=l.ObtenerPilaImagen2(0);
@@ -66,6 +71,8 @@ public class Tablero implements ActionListener {
             Icon iconos2=new ImageIcon(iconos.getImage().getScaledInstance(lista_extraer.getWidth(), lista_extraer.getHeight(), Image.SCALE_DEFAULT));
             lista_extraer.setIcon(iconos2);
             objeto2.setText(nom.toString());}
+       
+       
         AgregarColumna.addActionListener(this);
         AgregarFila.addActionListener(this);
         ventana.add(objeto);
@@ -86,5 +93,8 @@ public class Tablero implements ActionListener {
         m.InsertarFila();}
         else if(e.getSource()==graficas){
         m.Graficas();}
+        else if(e.getSource()==ListaR){
+        Juego ju=new Juego();
+        ju.setVisible(true);}
     }
 }

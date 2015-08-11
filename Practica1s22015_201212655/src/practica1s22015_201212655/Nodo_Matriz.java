@@ -137,7 +137,7 @@ public class Nodo_Matriz extends javax.swing.JButton implements ActionListener {
                 
                                  System.out.println(this.getImagen().toString());
                                  this.setIcon(null);
-                                 l.InsertarInicio(this.getNombre(), this.getImagen());
+                                 l.InsertarFin(this.getNombre(), this.getImagen());
                                  this.setNombre(null);
                                  this.setImagen(null);
                                 }
