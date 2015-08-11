@@ -49,18 +49,22 @@ public class Matriz {
             pw.println("{");
             //pw.println("Matriz;");
             
-          
+          //System.out.println(ObtenerImagen(0,0));
                             for(int x=0;x<ancho;x++){
                                                         for(int y=0;y<largo;y++){
                                                                                     String tener=ObtenerImagen(x,y);
+                                                                                    System.out.println(ancho);
+                                                                                    System.out.println(largo);
+                                                                                    System.out.println(x+"  "+y);
                                                                                     pw.println(tener+";");
                                                         System.out.println(tener);}
                                                                                     
                     }
-                            for(int x=1;x<ancho+1;x++){
+                            for(int x=0;x<ancho-1;x++){
                                                         for(int y=0;y<largo;y++){
                                                                                     String tener=ObtenerImagen(x,y);
-                                                                                    pw.println(ObtenerImagen(x,y)+" -> "+ObtenerImagen(x-1,y)+";");
+                                                                                    pw.println(ObtenerImagen(x,y)+" -> "+ObtenerImagen(x+1,y)+";");
+                                                                                    pw.println(ObtenerImagen(x+1,y)+" -> "+ObtenerImagen(x,y)+";");
                                                                                     
                                                                                     
                                                                                     }
@@ -209,20 +213,45 @@ ex.printStackTrace();
             public static String ObtenerImagen(int x, int y){
             
                 Nodo_Matriz busca=raiz;
-                for(int i=1;i<=x;i++){
-                    if(busca.derecha!=null){
-                            busca=busca.getDerecha();}
-                        
-                        
-                                for(int j=1;j<=y;j++){
-                                                        if(busca.arriba!=null){
-                                                        busca=busca.getArriba();}}
-                    }
-                if(busca.imagen==null){
-                return "vacio"+x+y;}
-                else{
-                String info=busca.nombre.toString();
-                return info;}
+                int f=0;
+                int g=0;
+               if(y==0&&x==0){
+                   busca=raiz;
+               }
+               else if(y==0 && x!=0){
+                   int r=0;         
+                                    while(r!=x){
+                                                r++;
+                                                busca=busca.getDerecha();}
+                                        }
+               else if(x==0 && y!=0){
+                    int w=0;
+                                    while(w!=y){
+                                                w++;
+                                                busca=busca.getArriba();}}
+               else{
+                if(ancho>x){
+                    while(f!=x){
+                                f++;
+                                busca=busca.getDerecha();
+                                }
+                
+                }
+                else{}
+                if(largo>y){
+                    while(g!=y){
+                                g++;
+                                busca=busca.getArriba();
+                                }
+                
+                }
+                else{}
+               }
+              if(busca.nombre==null){
+              return "vacio"+x+y;}
+              else{
+                return busca.nombre.toString();}
+
             }
             public static void llenarC(Nodo_Matriz helper, int contC){
                int contF1=1;

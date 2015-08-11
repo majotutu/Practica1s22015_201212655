@@ -110,24 +110,10 @@ public class Nodo_Matriz extends javax.swing.JButton implements ActionListener {
                                  System.out.println(this.getImagen().toString());
                                  this.setIcon(null);
                                  l.InsertarInicio(this.getNombre(), this.getImagen());
+                                 this.setNombre(null);
+                                 this.setImagen(null);
                                 }
             else{
-            System.out.println("nada");}
-        ModoPila();
-        }
-        else{
-            if(this.getImagen()!=null){
-                                 System.out.println(this.getImagen().toString());
-                                 this.setIcon(null);
-                                 l.InsertarFin(this.getNombre(), this.getImagen());
-                                }
-            else{
-            System.out.println("nada");
-            ModoCola();}}}
-        //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void ModoPila() {
         String path1="/Imagenes/"+l.ObtenerPilaImagen2(0).toString()+".JPG";
         URL urls=this.getClass().getResource(path1);
         ImageIcon iconos1 = new ImageIcon(urls);
@@ -137,14 +123,49 @@ public class Nodo_Matriz extends javax.swing.JButton implements ActionListener {
         this.setNombre(l.ObtenerPilaNombre(0));
             
         l.EliminarPila(0);
-        
-        String path="/Imagenes/"+l.ObtenerPilaImagen2(0).toString()+".JPG";
+            String path="/Imagenes/"+l.ObtenerPilaImagen2(0).toString()+".JPG";
             URL url=this.getClass().getResource(path);
             ImageIcon iconos = new ImageIcon(url);
             Icon iconos2=new ImageIcon(iconos.getImage().getScaledInstance(Tablero.lista_extraer.getWidth(), Tablero.lista_extraer.getHeight(), Image.SCALE_DEFAULT));
             Tablero.lista_extraer.setIcon(iconos2);
             Tablero.objeto2.setText(l.ObtenerPilaNombre(0).toString()); }
 
+        
+        }
+        else{
+            if(this.getImagen()!=null){
+                
+                                 System.out.println(this.getImagen().toString());
+                                 this.setIcon(null);
+                                 l.InsertarInicio(this.getNombre(), this.getImagen());
+                                 this.setNombre(null);
+                                 this.setImagen(null);
+                                }
+            else{
+        String path1="/Imagenes/"+l.ObtenerColaImagen2(0).toString()+".JPG";
+        URL urls=this.getClass().getResource(path1);
+        ImageIcon iconos1 = new ImageIcon(urls);
+        Icon iconos22=new ImageIcon(iconos1.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+        this.setIcon(iconos22);
+        this.setImagen(l.ObtenerColaImagen2(0));
+        this.setNombre(l.ObtenerColaNombre(0));
+            
+        l.Eliminar(0);
+            String path="/Imagenes/"+l.ObtenerColaImagen2(0).toString()+".JPG";
+            URL url=this.getClass().getResource(path);
+            ImageIcon iconos = new ImageIcon(url);
+            Icon iconos2=new ImageIcon(iconos.getImage().getScaledInstance(Tablero.lista_extraer.getWidth(), Tablero.lista_extraer.getHeight(), Image.SCALE_DEFAULT));
+            Tablero.lista_extraer.setIcon(iconos2);
+            Tablero.objeto2.setText(l.ObtenerColaNombre(0).toString()); }
+
+        }}
+        //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void ModoPila() {
+        
+        
+    }
     private void ModoCola() {
          String path1="/Imagenes/"+l.ObtenerColaImagen2(0).toString()+".JPG";
         URL urls=this.getClass().getResource(path1);
