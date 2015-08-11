@@ -1,0 +1,19 @@
+digraph G
+{
+vacio00;
+vacio01;
+vacio10;
+;
+vacio20;
+;
+vacio30;
+vacio31;
+vacio10 -> vacio00;
+ -> vacio01;
+vacio20 -> vacio10;
+ -> ;
+vacio30 -> vacio20;
+vacio31 -> ;
+vacio40 -> vacio30;
+vacio41 -> vacio31;
+}

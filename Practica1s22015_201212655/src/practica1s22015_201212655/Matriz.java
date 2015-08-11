@@ -7,6 +7,8 @@ package practica1s22015_201212655;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
 /**
  *
@@ -14,6 +16,8 @@ import java.awt.event.ActionListener;
  */
 public class Matriz {
     public static Nodo_Matriz raiz;
+    public static int ancho;
+    public static int largo;
     Tablero t;
     public static int contar1;
     public static int contar2;
@@ -28,8 +32,103 @@ public class Matriz {
         raiz=null;
         contar1=640;
         cont=50;
+        ancho=4;
+        largo=2;
         
         }
+        
+        public static void Graficas(){
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            
+            fichero = new FileWriter("Matriz.txt");
+            pw = new PrintWriter(fichero);
+            pw.println("digraph G");
+            pw.println("{");
+            //pw.println("Matriz;");
+            
+          
+                            for(int x=0;x<ancho;x++){
+                                                        for(int y=0;y<largo;y++){
+                                                                                    String tener=ObtenerImagen(x,y);
+                                                                                    pw.println(tener+";");
+                                                        System.out.println(tener);}
+                                                                                    
+                    }
+                            for(int x=1;x<ancho+1;x++){
+                                                        for(int y=0;y<largo;y++){
+                                                                                    String tener=ObtenerImagen(x,y);
+                                                                                    pw.println(ObtenerImagen(x,y)+" -> "+ObtenerImagen(x-1,y)+";");
+                                                                                    
+                                                                                    
+                                                                                    }
+                                                                                    
+                    }
+                            
+                           
+      
+          pw.println("}");      
+                
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+        generar("Matriz");
+        }
+        public static void generar(String LaRuta){
+       
+try {
+
+//path del dot.exe,por lo general es la misma, pero depende de donde hayas instalado el paquete de Graphviz
+String dotPath="C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
+
+//path del archivo creado con el codigo del graphviz que queremos
+
+String fileInputPath = LaRuta+".txt";
+
+//path de salida del grafo, es decir el path de la imagen que vamos a crear con graphviz
+
+String fileOutputPath = LaRuta+".jpg";
+
+//tipo de imagen de salida, en este caso es jpg
+
+String tParam = "-Tjpg";
+
+String tOParam = "-o";
+
+//concatenamos nuestras direcciones. Lo que hice es crear un vector, para poder editar las direcciones de entrada y salida, usando las variables antes inicializadas
+
+//recordemos el comando en la consola de windows: C:\Archivos de programa\Graphviz 2.21\bin\dot.exe -Tjpg grafo1.txt -o grafo1.jpg Esto es lo que concatenamos en el vector siguiente:
+
+String[] cmd = new String[5];
+cmd[0] = dotPath;
+cmd[1] = tParam;
+cmd[2] = fileInputPath;
+cmd[3] = tOParam;
+cmd[4] = fileOutputPath;
+
+//Invocamos nuestra clase 
+
+Runtime rt = Runtime.getRuntime();
+
+//Ahora ejecutamos como lo hacemos en consola
+
+rt.exec( cmd );
+
+} catch (Exception ex) {
+ex.printStackTrace();
+}  finally {
+}
+}
         
         
             public static void generarPrimera(){
@@ -94,6 +193,7 @@ public class Matriz {
                     while(helper.derecha!=null){
                         contC=contC+1;
                         helper=helper.getDerecha();}
+                    ancho=ancho+1;
                     
                     
                     Nodo_Matriz insercion=new Nodo_Matriz(contC,0,null,null,null,null,null,helper);
@@ -106,7 +206,24 @@ public class Matriz {
                     helper=insercion;
                     llenarC(helper,contC);
                 }
+            public static String ObtenerImagen(int x, int y){
             
+                Nodo_Matriz busca=raiz;
+                for(int i=1;i<=x;i++){
+                    if(busca.derecha!=null){
+                            busca=busca.getDerecha();}
+                        
+                        
+                                for(int j=1;j<=y;j++){
+                                                        if(busca.arriba!=null){
+                                                        busca=busca.getArriba();}}
+                    }
+                if(busca.imagen==null){
+                return "vacio"+x+y;}
+                else{
+                String info=busca.nombre.toString();
+                return info;}
+            }
             public static void llenarC(Nodo_Matriz helper, int contC){
                int contF1=1;
                
@@ -158,8 +275,7 @@ public class Matriz {
                     while(helper.arriba!=null){
                         contFl=contFl+1;
                         helper=helper.getArriba();}
-                    
-                    
+                    largo=largo+1;                    
                     Nodo_Matriz insercion=new Nodo_Matriz(0,contFl,null,null,null,helper,null,null);
                     contar1=contar1-50;
                     insercion.setBounds(0, contar1, 50, 50);

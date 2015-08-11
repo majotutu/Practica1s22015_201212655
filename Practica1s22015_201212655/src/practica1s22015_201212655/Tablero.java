@@ -24,7 +24,7 @@ import javax.swing.JLabel;
 public class Tablero implements ActionListener {
     Matriz m;
     Lista l;
-    public static JButton AgregarFila, AgregarColumna;
+    public static JButton AgregarFila, AgregarColumna,graficas;
     public static JLabel lista_extraer,objeto,objeto2;
     public static JFrame ventana;
     public Tablero(){
@@ -43,6 +43,10 @@ public class Tablero implements ActionListener {
         objeto2=new JLabel();
         objeto.setBounds(1170, 40, 60, 15);
         objeto2.setBounds(1210, 65, 70, 15);
+        graficas=new JButton("Grafica");
+        graficas.setBounds(20, 7, 80, 20);
+        graficas.addActionListener(this);
+        ventana.add(graficas);
        if(l.forma==0){
            Object img=l.ObtenerPilaImagen2(0);
            Object nom=l.ObtenerPilaNombre(0);
@@ -80,5 +84,7 @@ public class Tablero implements ActionListener {
         m.InsertarColumna();}
         else if(e.getSource()==AgregarFila){
         m.InsertarFila();}
+        else if(e.getSource()==graficas){
+        m.Graficas();}
     }
 }
